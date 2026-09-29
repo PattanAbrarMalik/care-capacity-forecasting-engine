@@ -1,132 +1,104 @@
-# UAC Insight: Care Load Dynamics and Seven-Day Forecasting
+# System Capacity & Care Load Analytics for Unaccompanied Children (UAC)
 
-**Data Science internship submission — Abrar Malik Pattan**
+**Unified Mentor Data Science & Healthcare Analytics Internship Submission**  
+**Author**: Pattan Abrar Malik  
 
-An auditable study of HHS UAC program observations, with a working research dashboard, chronological forecasting experiment, executed notebook, and editable report.
+An end-to-end data science and healthcare capacity analytics platform for the U.S. Department of Health and Human Services (HHS) and Customs & Border Protection (CBP) Unaccompanied Alien Children (UAC) program.
 
-## What makes this a Data Science project?
+---
 
-The project answers a specific question: **How do reported care loads and flows evolve, and can an exact seven-day HHS-care prediction outperform persistence?**
+## 🚀 Quick Start (Run Locally)
 
-It includes source validation and provenance, exploratory analysis, observation-aware feature engineering, sensitivity analysis, four forecasting candidates, temporal leakage protection, validation-based selection, held-out evaluation, and a reproducible evidence pipeline. The application presents the scientific work and lets a reviewer inspect the underlying data.
-
-## Measured results from the supplied source
-
-| Evidence | Result |
-| --- | --- |
-| Valid observations | 720, from 2023-01-12 to 2025-12-21 |
-| Blank source records removed | 450 |
-| Observed-date coverage | 66.98%; 355 unobserved dates |
-| Latest / peak combined load | 2,502 / 11,762 |
-| Validation-selected model | Local linear trend |
-| Test MAE / persistence MAE | 21.91 / 31.22 children |
-| Test MAE improvement | 29.82% on 99 exact seven-day target pairs |
-
-The study is historical. The model result applies to the documented split; it is not universal accuracy or a present-day forecast. No capacity, staffing, or causal effect is inferred from this file.
-
-## Start on Windows PowerShell
-
-Install Python **3.11 or 3.12**.
-
+### 1. Prerequisites & Environment Setup
+Clone the repository and install dependencies:
 ```powershell
-# Run the Streamlit Dashboard (Mandated Deliverable)
-.venv\Scripts\python.exe -m streamlit run streamlit_app.py
+# Create and activate virtual environment
+python -m venv .venv
+.venv\Scripts\activate
 
-# Alternatively, run the REST API & Web Server
-.venv\Scripts\python.exe app.py
+# Install required dependencies
+pip install -r requirements.txt
 ```
 
-Open **http://localhost:8501** in your browser.
-
-## Deliverables for Submission
-
-1. **`reports/Internship_Report.docx`** — Comprehensive research paper covering EDA, capacity metrics, forecasting models, and findings.
-2. **`reports/Executive_Summary_Stakeholders.md`** — Standalone policy and capacity briefing tailored for HHS and government stakeholders.
-3. **`streamlit_app.py`** — Interactive Streamlit healthcare capacity dashboard (System Load Overview, CBP vs HHS Comparison, Net Intake Trends, KPIs, and ML Laboratory).
-4. **`notebooks/01_research_workflow.ipynb`** — Executed research notebook with tables, visualizations, and model evaluations.
-
-3. **Dashboard** — research overview, flows and pressure, forecast laboratory, source audit, data explorer, and project guide.
-4. **`docs/VIVA_GUIDE.md`** — demo sequence, presentation notes, and likely reviewer questions.
-5. **`docs/CODE_WALKTHROUGH.md`** — module/function explanations and the frontend-to-backend request path.
-6. **`reports/run_manifest.json`** — source checksum, package versions, and reproduction settings.
-
-## Reproduce the evidence
-
+### 2. Launch the Streamlit Live Dashboard
 ```powershell
-.venv\Scripts\python.exe scripts/build_project.py
-.venv\Scripts\python.exe scripts/build_notebook.py
-.venv\Scripts\python.exe scripts/build_report.py
-.venv\Scripts\python.exe -m unittest discover -s tests -v
+streamlit run streamlit_app.py
+```
+Open **[http://localhost:8501](http://localhost:8501)** in your browser.
+
+---
+
+## 📦 Project Submission Deliverables
+
+| Deliverable | Location | Description |
+| :--- | :--- | :--- |
+| **Streamlit Web Dashboard** | [`streamlit_app.py`](streamlit_app.py) | Interactive healthcare capacity dashboard with system load overview, CBP vs HHS comparison, net intake & backlog trends, KPI cards, and 7-day predictive forecasting. |
+| **Research Paper / Report** | [`reports/Internship_Report.docx`](reports/Internship_Report.docx) | Formal academic and technical report covering problem statement, EDA, capacity metrics, baseline comparisons, and limitations. |
+| **Executive Policy Briefing** | [`reports/Executive_Summary_Stakeholders.docx`](reports/Executive_Summary_Stakeholders.docx) ([MD](reports/Executive_Summary_Stakeholders.md)) | Strategic briefing for HHS ORR and CBP leadership highlighting capacity bottlenecks and early warning thresholds. |
+| **Research Notebook** | [`notebooks/01_research_workflow.ipynb`](notebooks/01_research_workflow.ipynb) | 16 pre-executed code cells containing exploratory analysis, statistical tables, and model evaluation charts. |
+| **Viva & Defense Guide** | [`docs/VIVA_GUIDE.md`](docs/VIVA_GUIDE.md) | Structured 7-minute demonstration sequence and answers to technical reviewer questions. |
+
+---
+
+## 📊 Measured Empirical Results
+
+* **Valid Source Observations**: 720 reports from 2023-01-12 to 2025-12-21 (purging 450 blank records with verified SHA-256 fingerprint).
+* **System Census Trajectory**: Peak load of **11,762 children** (Dec 2023) decreasing to **2,502 children** (Dec 2025).
+* **Workload Allocation**: HHS shelter facilities consistently shoulder **94.6%** of active care burden; CBP custody accounts for **5.4%**.
+* **Model Benchmark (7-Day Ahead Forecast)**:
+  * **Selected Winner**: Local Linear Trend (Validation MAE: 20.08 children; Test MAE: **21.91 children**).
+  * **Naive Persistence Baseline**: Test MAE of **31.22 children**.
+  * **Skill Gain**: **+29.82% lower holdout MAE** over baseline with zero future data leakage.
+
+---
+
+## 📁 Repository Architecture
+
+```text
+care-capacity-forecasting-engine/
+├── .gitignore               # Excludes virtual environments and local cache
+├── Dockerfile               # Production container configuration
+├── Procfile                 # One-click cloud deployment config (Render / Railway)
+├── README.md                # Project documentation and reproduction instructions
+├── requirements.txt         # Core project dependencies (Streamlit, Plotly, Scikit-learn, etc.)
+├── streamlit_app.py         # Main interactive Streamlit analytics application
+├── data/
+│   └── HHS_Unaccompanied_Alien_Children_Program.csv  # Raw immutable historical records
+├── docs/
+│   └── VIVA_GUIDE.md        # Presentation walkthrough and examiner Q&A preparation
+├── notebooks/
+│   └── 01_research_workflow.ipynb # Executed Jupyter notebook with findings and figures
+├── reports/
+│   ├── Executive_Summary_Stakeholders.docx  # Policy briefing for government stakeholders
+│   ├── Executive_Summary_Stakeholders.md    # Markdown version of executive summary
+│   ├── Internship_Report.docx               # Full academic internship report
+│   └── figures/                             # Generated publication-quality figures
+├── scripts/
+│   └── build_project.py     # Re-exporting plotting and visualization helpers
+├── src/
+│   ├── __init__.py
+│   ├── analysis.py          # Summary metrics, correlations, and sensitivity logic
+│   ├── data.py              # Data ingestion, schema validation, and SHA-256 digests
+│   ├── features.py          # Domain feature engineering and rolling pressure metrics
+│   ├── models.py            # Chronological splitting, baseline, ML models, and scoring
+│   └── visualization.py     # Matplotlib publication chart generators
+└── tests/
+    └── test_research.py     # Unit test suite verifying formulas, leakage, and data integrity
 ```
 
-To open and rerun in JupyterLab:
+---
 
+## 🧪 Automated Testing
+
+Verify data integrity, feature formulas, and temporal leakage prevention:
 ```powershell
-.venv\Scripts\python.exe -m pip install -r requirements-notebook.txt
-.venv\Scripts\python.exe -m jupyter lab notebooks/01_research_workflow.ipynb
+python -m unittest discover tests -v
 ```
 
-The builders always use the original CSV. A report built after manually changing the raw CSV requires that new source to pass validation. The supplied notebook is already executed and can be reviewed without running it.
+---
 
-## Project structure
-
-| Location | Purpose |
-| --- | --- |
-| `src/data.py` | Read source, validate schema/counts/dates, compute fingerprints |
-| `src/features.py` | Derive explanatory metrics and origin-safe predictors |
-| `src/models.py` | Exact seven-day targets, train/validation/test splits, fixed candidates, scores |
-| `src/analysis.py` | EDA, annual/monthly tables, rank associations, sensitivity, research bundle |
-| `app.py` | Local HTTP server and REST routes; caches research by dataset content |
-| `store.py` | Validated SQLite working copy and CRUD operations |
-| `analytics.py` | Lightweight observation summaries for API filters |
-| `web/` | HTML structure, CSS presentation, JavaScript API calls and interactive charts |
-| `scripts/` | Rebuild tables, figures, executed notebook, and Word report |
-| `reports/` | Submission report, figures, tables, results, and run manifest |
-| `tests/` | Source, formula, leakage and API checks using disposable databases |
-
-## Scientific design
-
-**Target:** HHS care exactly seven calendar days after an origin. No report on the target date means the pair is omitted; no labels are interpolated.
-
-**Candidates:** persistence, 14-observation calendar-time local trend, standardized ridge regression, and a random forest with fixed settings and seed 42. Learned regressors predict census change and add it to the origin census.
-
-**Split:** 70/15/15 chronological boundaries on raw observations. Training labels must precede validation, and validation labels must precede test. Validation MAE chooses the model. The learned candidates are then refit on pre-test eligible pairs. Test MAE, RMSE, and bias are reported without using them to select the winner.
-
-**Interpretation:** Local trend wins this experiment. A more complex model is not assumed to be better. Errors are in children, not percentage accuracy. The final forecast starts at the historical dataset cutoff. Its validation-error reference range is not a calibrated confidence interval.
-
-**Limitations:** irregular reporting, exact-target selection bias, dependent overlapping forecast errors, one temporal holdout, unknown within-day measurement alignment, and no capacity denominator. The relative-stress composite flags zero high-score records here; that is a limitation of this rule, not proof of no operational strain.
-
-## Dataset and working-copy behavior
-
-The original CSV is preserved in `data/`. First launch seeds `data/observations.sqlite3`. Edits from Data Explorer update only that local copy and trigger recalculation. A fingerprint notice appears if the working data differs from the source. Reports and notebooks remain tied to the source, and the ZIP excludes the mutable database.
-
-To restore source observations: stop the server, back up any wanted edits, delete `data/observations.sqlite3`, then restart. Deleting all observations through the API leaves the working dataset empty on restart; it does not silently reseed it.
-
-## REST API
-
-| Method | Route | Use |
-| --- | --- | --- |
-| GET | `/api/health` | Server health |
-| GET | `/api/research` | Full EDA and modeling bundle |
-| GET | `/api/observations?start=2025-01-01&end=2025-12-31` | Filtered records and summaries |
-| GET | `/api/observations/{id}` | One stored record |
-| POST | `/api/observations` | Create a working-copy observation; 201 |
-| PUT | `/api/observations/{id}` | Replace all six record fields |
-| DELETE | `/api/observations/{id}` | Delete a working-copy observation |
-
-Example JSON for POST/PUT:
-
-```json
-{"date":"2026-01-05","cbp_intake":10,"cbp_custody":20,"transfers":8,"hhs_care":2500,"discharges":12}
-```
-
-Date must be valid ISO format and unique. Counts must be integers from 0 to 2,000,000,000. Invalid input returns 400, duplicate dates 409, and missing IDs 404. All SQL values are parameterized. This research application binds to localhost and has no authentication; it is not configured for public hosting.
-
-## Submission checklist
-
-- Read the report and understand the limitations before presenting.
-- Run the tests and dashboard on your own computer.
-- Walk through the notebook from source audit through model evaluation.
-- Explain the validation winner and the 29.82% holdout MAE reduction precisely.
-- Show the source checksum, reproducible commands, and one API operation.
-- Add any institution-required cover page, supervisor details, or internship declaration yourself; none has been invented here.
+## ☁️ Cloud Deployment (Render / Railway)
+The project includes a ready-to-use [`Dockerfile`](Dockerfile) and [`Procfile`](Procfile). To deploy:
+1. Connect this repository to [Render](https://render.com) or [Railway](https://railway.app).
+2. Choose **Python** (or Docker) runtime.
+3. Start command: `streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true`.

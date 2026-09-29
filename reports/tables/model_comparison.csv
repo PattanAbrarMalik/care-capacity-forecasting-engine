@@ -1,5 +1,0 @@
-model,validation.mae,validation.rmse,validation.bias,test.mae,test.rmse,test.bias
-Persistence,92.82,154.51,55.01,31.22,34.57,-14.92
-Local linear trend,86.62,138.45,-49.41,21.91,27.73,-9.96
-Ridge regression,122.44,145.64,-62.36,66.03,73.29,-37.09
-Random forest,475.14,492.72,-464.07,27.52,33.72,-23.89
