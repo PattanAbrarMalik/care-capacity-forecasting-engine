@@ -1,6 +1,6 @@
 # UAC Insight: Care Load Dynamics and Seven-Day Forecasting
 
-**Data Science internship submission — Harish V J**
+**Data Science internship submission — Abrar Malik Pattan**
 
 An auditable study of HHS UAC program observations, with a working research dashboard, chronological forecasting experiment, executed notebook, and editable report.
 
