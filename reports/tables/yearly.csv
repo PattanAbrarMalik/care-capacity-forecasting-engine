@@ -1,0 +1,4 @@
+date,observations,mean_load,minimum_load,maximum_load,positive_flow_share
+2023,230,8846.543,5730,11762,5.217
+2024,251,7319.865,5947,10994,58.964
+2025,239,2575.745,2002,6471,32.636
