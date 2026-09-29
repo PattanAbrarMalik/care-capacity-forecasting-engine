@@ -26,23 +26,25 @@ The study is historical. The model result applies to the documented split; it is
 
 ## Start on Windows PowerShell
 
-Install Python **3.11 or 3.12**. The submitted run used Python 3.12. Use a path to the extracted folder; do not run the commands inside the ZIP.
+Install Python **3.11 or 3.12**.
 
 ```powershell
-cd "C:\path\to\UAC_Analytics"
-py -3.12 -m venv .venv
-.venv\Scripts\python.exe -m pip install -r requirements.txt
+# Run the Streamlit Dashboard (Mandated Deliverable)
+.venv\Scripts\python.exe -m streamlit run streamlit_app.py
+
+# Alternatively, run the REST API & Web Server
 .venv\Scripts\python.exe app.py
 ```
 
-Open **http://127.0.0.1:8501**. Stop with Ctrl+C. No virtual-environment activation is required, so PowerShell execution-policy changes are unnecessary. If you have Python 3.11, replace `py -3.12` with `py -3.11`. If the port is busy, run `app.py --port 8502`.
+Open **http://localhost:8501** in your browser.
 
-On macOS/Linux: `python3 -m venv .venv`, `.venv/bin/python -m pip install -r requirements.txt`, then `.venv/bin/python app.py`.
+## Deliverables for Submission
 
-## What to open for evaluation
+1. **`reports/Internship_Report.docx`** — Comprehensive research paper covering EDA, capacity metrics, forecasting models, and findings.
+2. **`reports/Executive_Summary_Stakeholders.md`** — Standalone policy and capacity briefing tailored for HHS and government stakeholders.
+3. **`streamlit_app.py`** — Interactive Streamlit healthcare capacity dashboard (System Load Overview, CBP vs HHS Comparison, Net Intake Trends, KPIs, and ML Laboratory).
+4. **`notebooks/01_research_workflow.ipynb`** — Executed research notebook with tables, visualizations, and model evaluations.
 
-1. **`reports/Internship_Report.docx`** — editable report with the research question, source audit, generated figures, methods, results, and limitations.
-2. **`notebooks/01_research_workflow.ipynb`** — 16 executed code cells with actual tables and figures.
 3. **Dashboard** — research overview, flows and pressure, forecast laboratory, source audit, data explorer, and project guide.
 4. **`docs/VIVA_GUIDE.md`** — demo sequence, presentation notes, and likely reviewer questions.
 5. **`docs/CODE_WALKTHROUGH.md`** — module/function explanations and the frontend-to-backend request path.

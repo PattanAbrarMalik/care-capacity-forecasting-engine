@@ -9,10 +9,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code and assets
 COPY . .
 
-# Default to 0.0.0.0 and port 8501
-ENV HOST=0.0.0.0
+# Default configuration for Streamlit
 ENV PORT=8501
-
 EXPOSE 8501
 
-CMD ["python", "app.py"]
+CMD ["sh", "-c", "streamlit run streamlit_app.py --server.port ${PORT:-8501} --server.address 0.0.0.0 --server.headless true"]
