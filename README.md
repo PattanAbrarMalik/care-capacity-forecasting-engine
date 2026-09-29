@@ -57,8 +57,6 @@ Open **[http://localhost:8501](http://localhost:8501)** in your browser.
 ```text
 care-capacity-forecasting-engine/
 ├── .gitignore               # Excludes virtual environments and local cache
-├── Dockerfile               # Production container configuration
-├── Procfile                 # One-click cloud deployment config (Render / Railway)
 ├── README.md                # Project documentation and reproduction instructions
 ├── requirements.txt         # Core project dependencies (Streamlit, Plotly, Scikit-learn, etc.)
 ├── streamlit_app.py         # Main interactive Streamlit analytics application
@@ -97,8 +95,13 @@ python -m unittest discover tests -v
 
 ---
 
-## ☁️ Cloud Deployment (Render / Railway)
-The project includes a ready-to-use [`Dockerfile`](Dockerfile) and [`Procfile`](Procfile). To deploy:
-1. Connect this repository to [Render](https://render.com) or [Railway](https://railway.app).
-2. Choose **Python** (or Docker) runtime.
-3. Start command: `streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true`.
+## ☁️ 1-Click Deployment (Streamlit Community Cloud)
+
+This repository is optimized for native deployment on **Streamlit Community Cloud**:
+1. Go to **[share.streamlit.io](https://share.streamlit.io)** and sign in with GitHub.
+2. Click **New app** and select:
+   * **Repository**: `PattanAbrarMalik/care-capacity-forecasting-engine`
+   * **Branch**: `main`
+   * **Main file path**: `streamlit_app.py`
+3. Click **Deploy!** — Streamlit will automatically read `requirements.txt` and launch your live application with a public sharing URL.
+
