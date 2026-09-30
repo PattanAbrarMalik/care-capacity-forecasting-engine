@@ -33,8 +33,6 @@ Open **[http://localhost:8501](http://localhost:8501)** in your browser.
 | Deliverable | Location | Description |
 | :--- | :--- | :--- |
 | **Streamlit Web Dashboard** | [`streamlit_app.py`](streamlit_app.py) | Interactive healthcare capacity dashboard with system load overview, CBP vs HHS comparison, net intake & backlog trends, KPI cards, and 7-day predictive forecasting. |
-| **Research Paper / Report** | [`reports/Internship_Report.docx`](reports/Internship_Report.docx) | Formal academic and technical report covering problem statement, EDA, capacity metrics, baseline comparisons, and limitations. |
-| **Executive Policy Briefing** | [`reports/Executive_Summary_Stakeholders.docx`](reports/Executive_Summary_Stakeholders.docx) ([MD](reports/Executive_Summary_Stakeholders.md)) | Strategic briefing for HHS ORR and CBP leadership highlighting capacity bottlenecks and early warning thresholds. |
 | **Research Notebook** | [`notebooks/01_research_workflow.ipynb`](notebooks/01_research_workflow.ipynb) | 16 pre-executed code cells containing exploratory analysis, statistical tables, and model evaluation charts. |
 | **Viva & Defense Guide** | [`docs/VIVA_GUIDE.md`](docs/VIVA_GUIDE.md) | Structured 7-minute demonstration sequence and answers to technical reviewer questions. |
 
@@ -66,11 +64,6 @@ care-capacity-forecasting-engine/
 │   └── VIVA_GUIDE.md        # Presentation walkthrough and examiner Q&A preparation
 ├── notebooks/
 │   └── 01_research_workflow.ipynb # Executed Jupyter notebook with findings and figures
-├── reports/
-│   ├── Executive_Summary_Stakeholders.docx  # Policy briefing for government stakeholders
-│   ├── Executive_Summary_Stakeholders.md    # Markdown version of executive summary
-│   ├── Internship_Report.docx               # Full academic internship report
-│   └── figures/                             # Generated publication-quality figures
 ├── scripts/
 │   └── build_project.py     # Re-exporting plotting and visualization helpers
 ├── src/
